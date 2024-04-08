@@ -19,6 +19,12 @@ const path = require('node:path');
 //use json
 app.use(express.json());
 
+//Encode forms
+app.use(express.json());
+
+//use the Public directory
+app.use(express.static(path.join(__dirname, "public")));
+
 
 
 //5 GET routes
@@ -51,6 +57,31 @@ app.get("/admin/create-book", (request, response, next) => {
     //response.send("This route points to the create book  page");
     response.status(200).json({success: {message: "create book page successful."}})
 });
+
+//Create 5 new GET routes
+app.get("/api/books", (request, response, next) => {
+    //do stuff...
+    //response.send("Create-Book page")
+    response.status(200).json({success: {message: "send all of the book data"}});
+});
+app.get("/api/books/:_id", (request, response, next) => {
+    //do stuff...
+    response.status(200).json({success: {message: "send all of the book details data by their ID"}});
+});
+app.get("/api/books/create/new", (request, response, next) => {
+    //do stuff...
+    response.status(200).json({success: {message: "send all of the book data that will have ability to create new books"}});
+});
+app.get("/api/books/edit/:id", (request, response, next) => {
+    //do stuff...
+    response.status(200).json({success: {message: "send all of the update comic book form page data to modify a book by theit ID"}});
+});
+
+app.get("/api/books/delete/:id", (request, response, next) => {
+    //do stuff...
+    response.status(200).json({success: {message: "send all of the book data and have ability to delete a book by their ID"}});
+});
+
 
 
     //Server

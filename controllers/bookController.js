@@ -20,7 +20,7 @@ const getAllBooks = async (request, response, next) => {
   }
 }
 
-const getBooks = async (request, response, next) => {
+const getBook = async (request, response, next) => {
   const { id } = request.params;
 
   try {
@@ -107,4 +107,5 @@ const editBook = async (request, response, next) =>{
 };
  
 
-module.exports = { getAllBooks };
+module.exports = { getAllBooks, getBook, createBook, editBook, deleteBook };
+

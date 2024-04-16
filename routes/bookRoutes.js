@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   getAllBooks,
-  getbook,
+  getBook,
   createBook,
   editBook,
   deleteBook,

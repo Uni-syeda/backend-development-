@@ -19,13 +19,15 @@ const path = require('node:path');
 const bookRoutes = require("./routes/bookRoutes");
 
 //use json
-app.use(express.json());
+//app.use(express.json());
 
 //Encode forms
 app.use(express.json());
 
 //use the Public directory
 app.use(express.static(path.join(__dirname, "public")));
+console.log(__dirname);
+console.log(path.join(__dirname, "public"));
 
 
 

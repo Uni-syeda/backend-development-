@@ -2,12 +2,33 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const codesquadeComicsSchema = new Schema ({
+const bookSchema = new Schema ({
     title: {
         type:String,
-    }
+    },
+    author: {
+        type:String,
+    },
+    publisher: {
+        type:String,
+    },
+    genre: {
+        type:String,
+    },
+    pages: {
+        type:Number,
+    },
+    rating: {
+        type:Number,
+    },
+    synopsis: {
+        type:String,
+    },
+    image: {
+        type:String,
+    },
 })
 
-const comics = mongoose.model("comics", codesquadComicsSchema);
+const Book = mongoose.model("Book", bookSchema);
 
-module.exports = comics;
+module.exports = Book;

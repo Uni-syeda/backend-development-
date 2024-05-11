@@ -10,7 +10,7 @@ const session = require("express-session");
 const app = express();
 
 //create a port number
-const PORT = 4000;
+const PORT = process.env.PORT || 3000;
 
 //Require morgan as Middleware
 const morgan = require("morgan");

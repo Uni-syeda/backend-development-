@@ -37,6 +37,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 // console.log(__dirname);
 // console.log(path.join(__dirname, "public"));
+app.get('/', (request, response, next) => {
+    response.status(200).json({success: {message: "Index successful"}, statusCode: 200});
+   })
 app.use(
   session({
     secret: process.env.SECRET_KEY,
@@ -111,7 +114,7 @@ app.use('/', authRoutes);
 //Server
 app.listen(PORT, () => {
   //SEND A MESSAGE
-  console.log(`Carol's bookstore server is listening on port ${PORT}`);
+  console.log(`Codesquad comic books server is listening on port ${PORT}`);
   //go to localhost
   console.log(`http://localhost:${PORT}/`);
 });

@@ -1,5 +1,3 @@
-// 
-
 //require bcrypt
 const bcrypt = require("bcrypt");
 //require the User model

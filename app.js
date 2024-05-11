@@ -25,6 +25,7 @@ const cors = require("cors");
 const path = require("node:path");
 
 const bookRoutes = require("./routes/bookRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 //use json
 //app.use(express.json());
@@ -34,8 +35,8 @@ app.use(express.json());
 
 //use the Public directory
 app.use(express.static(path.join(__dirname, "public")));
-console.log(__dirname);
-console.log(path.join(__dirname, "public"));
+// console.log(__dirname);
+// console.log(path.join(__dirname, "public"));
 app.use(
   session({
     secret: process.env.SECRET_KEY,
@@ -47,41 +48,42 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //5 GET routes
-app.get("/", (request, response, next) => {
-  //send a message
-  //response.send("This route points to the Home page");
+// app.get("/", (request, response, next) => {
+//   //send a message
+//   //response.send("This route points to the Home page");
 
-  //refactor
-  response
-    .status(200)
-    .json({ success: { message: "Index page is successful" } });
-});
+//   //refactor
+//   response
+//     .status(200)
+//     .json({ success: { message: "Index page is successful" } });
+// });
 
-app.get("/about", (request, response, next) => {
-  //send a message
-  //response.send("This route points to the About page");
-  response.status(200).json({ success: { message: "About page successful." } });
-});
-app.get("/admin", (request, response, next) => {
-  //send a message
-  //response.send("This route points to the Admin page");
-  response.status(200).json({ success: { message: "Admin page successful." } });
-});
+// app.get("/about", (request, response, next) => {
+//   //send a message
+//   //response.send("This route points to the About page");
+//   response.status(200).json({ success: { message: "About page successful." } });
+// });
+// app.get("/admin", (request, response, next) => {
+//   //send a message
+//   //response.send("This route points to the Admin page");
+//   response.status(200).json({ success: { message: "Admin page successful." } });
+// });
 
-app.get("/login", (request, response, next) => {
-  //send a message
-  //response.send("This route points to the login page");
-  response.status(200).json({ success: { message: "login page successful." } });
-});
-app.get("/admin/create-book", (request, response, next) => {
-  //send a message
-  //response.send("This route points to the create book  page");
-  response
-    .status(200)
-    .json({ success: { message: "create book page successful." } });
-});
+// app.get("/login", (request, response, next) => {
+//   //send a message
+//   //response.send("This route points to the login page");
+//   response.status(200).json({ success: { message: "login page successful." } });
+// });
+// app.get("/admin/create-book", (request, response, next) => {
+//   //send a message
+//   //response.send("This route points to the create book  page");
+//   response
+//     .status(200)
+//     .json({ success: { message: "create book page successful." } });
+//});
 
 app.use("/api/books", bookRoutes);
+app.use('/', authRoutes);
 // //Create 5 new GET routes
 // app.get("/api/books", (request, response, next) => {
 //     //do stuff...
